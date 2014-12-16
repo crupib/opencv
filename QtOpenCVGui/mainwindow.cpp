@@ -27,10 +27,13 @@ void MainWindow::on_pushButton_clicked()
     // Qt image
     QImage img= QImage((const unsigned char*)(image.data),
                        image.cols,image.rows,QImage::Format_RGB888);
-    // display on label
+    // display on label   
+
     ui->label->setPixmap(QPixmap::fromImage(img));
+    ui->label->setScaledContents( true );
+    ui->label->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     // resize the label to fit the image
-    ui->label->resize(ui->label->pixmap()->size());
+//    ui->label->resize(ui->label->pixmap()->size());
    // cv::namedWindow("Original Image");
    // cv::imshow("Original Image", image);
     ui->pushButton_2->setEnabled(true);
@@ -46,7 +49,9 @@ void MainWindow::on_pushButton_2_clicked()
                        image.cols,image.rows,QImage::Format_RGB888);
     // display on label
     ui->label->setPixmap(QPixmap::fromImage(img));
+    ui->label->setScaledContents( true );
+    ui->label->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     // resize the label to fit the image
-    ui->label->resize(ui->label->pixmap()->size());
+//   ui->label->resize(ui->label->pixmap()->size());
     ui->pushButton_2->setEnabled(false);
 }
